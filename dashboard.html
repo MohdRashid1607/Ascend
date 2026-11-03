@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard — Ascend</title>
+<meta name="description" content="Your Ascend command center.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/sections.css">
+<link rel="stylesheet" href="css/Components.css">
+<link rel="stylesheet" href="css/Pages.css">
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="inner">
+<div class="page">
+<header><div id="site-nav"></div></header>
+<main>
+  <div class="db-shell">
+    <!-- Sidebar -->
+    <nav class="db-sidebar" id="dbSidebar">
+      <div class="db-avatar-wrap">
+        <div class="db-avatar" id="dbAvatar"></div>
+        <div>
+          <div class="db-name" id="dbName">Loading…</div>
+          <div class="db-email" id="dbEmail"></div>
+        </div>
+      </div>
+      <ul class="db-nav">
+        <li class="active"><span>⌂</span> Overview</li>
+        <li><span>⚡</span> Workflows</li>
+        <li><span>📊</span> Analytics</li>
+        <li><span>👥</span> Leads</li>
+        <li><span>⚙</span> Settings</li>
+      </ul>
+      <button class="btn btn-outline db-signout" id="signOutBtn" type="button">Sign out</button>
+    </nav>
+
+    <!-- Main content -->
+    <div class="db-main">
+      <div class="db-topbar">
+        <h1 class="db-greeting" id="dbGreeting">Good evening 👋</h1>
+        <span class="db-plan-badge">Launch Plan <a href="plans.html">↑ Upgrade</a></span>
+      </div>
+
+      <!-- KPI cards -->
+      <div class="db-kpis">
+        <div class="db-kpi glass">
+          <div class="db-kpi-label">Leads this month</div>
+          <div class="db-kpi-value">—</div>
+          <div class="db-kpi-sub">of 500 included</div>
+        </div>
+        <div class="db-kpi glass">
+          <div class="db-kpi-label">Active workflows</div>
+          <div class="db-kpi-value">—</div>
+          <div class="db-kpi-sub">of 1 included</div>
+        </div>
+        <div class="db-kpi glass">
+          <div class="db-kpi-label">Pipeline velocity</div>
+          <div class="db-kpi-value">—</div>
+          <div class="db-kpi-sub">vs. last month</div>
+        </div>
+        <div class="db-kpi glass">
+          <div class="db-kpi-label">Capture accuracy</div>
+          <div class="db-kpi-value">—</div>
+          <div class="db-kpi-sub">rolling 30 days</div>
+        </div>
+      </div>
+
+      <!-- Welcome card -->
+      <div class="db-welcome glass" data-reveal>
+        <div class="db-welcome-text">
+          <h2>You're in orbit. 🚀</h2>
+          <p>Your Ascend workspace is ready. Connect your first data source or explore the learning center to hit the ground running.</p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:20px">
+            <a class="btn btn-primary" href="learning.html">Explore guides</a>
+            <a class="btn btn-outline" href="plans.html">View plans</a>
+          </div>
+        </div>
+        <div class="db-orb-mini"></div>
+      </div>
+
+      <!-- Recent guides -->
+      <section class="db-section">
+        <h3 class="db-section-title">Quick reads</h3>
+        <div class="db-guide-grid" id="dbGuides"></div>
+      </section>
+    </div>
+  </div>
+</main>
+</div>
+<script type="module" src="js/dashboard.js"></script>
+</body>
+</html>

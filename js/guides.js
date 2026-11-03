@@ -1,0 +1,8 @@
+export const cats=['All','Playbooks','Analytics','Automation','Security','Growth'];
+export const guides=[
+{id:'first-pipeline',cat:'Playbooks',min:6,t:'Build your first pipeline in 15 minutes',d:'Map stages, owners and hand-offs so every deal has a next step.',take:['Start with 4 stages, not 10','Give every stage exactly one owner','Define the exit rule before you build the stage']},
+{id:'one-number',cat:'Analytics',min:8,t:'Find the one number that predicts revenue',d:'Stop watching twenty charts and pick the signal that actually moves.',take:['Test metrics against closed-won, not activity','Prefer leading indicators over totals','Review the number weekly, the rest monthly']},
+{id:'intent-triggers',cat:'Automation',min:7,t:'Triggers that fire on buying intent',d:'Route hot leads the second they raise a hand.',take:['Pricing-page visits beat newsletter clicks','Alert the owner in under a minute','Throttle triggers so reps never get flooded']},
+{id:'soc2-sso',cat:'Security',min:9,t:'SOC 2 and SSO without the ticket queue',d:'Roll out roles and single sign-on in an afternoon.',take:['Start from least-privilege roles','Enforce SSO before you invite the whole team','Keep an audit trail from day one']},
+{id:'fair-scoring',cat:'Playbooks',min:5,t:'Score leads fairly: fit plus behavior',d:'Combine who they are with what they do so reps trust the score.',take:['Score fit and behavior separately','Decay old activity automatically','Recalibrate every quarter']},
+{id:'scale-10k',cat:'Growth',min:10,t:'From 10 to 10,000 leads without breaking',d:'What to change in your process before volume breaks it.',take:['Automate routing before you hire','Standardize handoff notes','Watch response time as you scale']}];

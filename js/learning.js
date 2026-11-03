@@ -1,0 +1,11 @@
+import './pages.js';
+import {cats,guides} from './guides.js';
+const grid=document.getElementById('grid'),chips=document.getElementById('chips'),q=document.getElementById('q'),none=document.getElementById('none');
+let cat='All';
+chips.innerHTML=cats.map(c=>`<button type="button" class="${c==='All'?'on':''}">${c}</button>`).join('');
+const draw=()=>{const s=q.value.trim().toLowerCase();
+  const list=guides.filter(g=>(cat==='All'||g.cat===cat)&&(g.t+g.d).toLowerCase().includes(s));
+  grid.innerHTML=list.map(g=>`<a class="card g-card" href="guide.html?id=${g.id}"><small>${g.cat}</small><h3>${g.t}</h3><p>${g.d}</p><span class="meta">${g.min} min read</span></a>`).join('');
+  none.hidden=list.length>0};
+chips.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;cat=b.textContent;chips.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));draw()});
+q.addEventListener('input',draw);draw();

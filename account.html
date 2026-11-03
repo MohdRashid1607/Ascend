@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Log in or sign up — Ascend</title>
+<meta name="description" content="Log in to Ascend or create a free account.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/sections.css">
+<link rel="stylesheet" href="css/Components.css">
+<link rel="stylesheet" href="css/Pages.css">
+</head>
+<body class="inner" data-mode="login">
+<div class="page">
+<header><div id="site-nav"></div></header>
+<main>
+<section class="acct">
+<div class="acct-form"><div class="acct-card">
+<div class="tabs" data-mode="login" role="tablist"><span class="tab-ind"></span><button type="button" role="tab" data-mode="login" aria-selected="true">Log in</button><button type="button" role="tab" data-mode="signup" aria-selected="false">Create account</button></div>
+<div id="acctBody">
+<h1 id="title">Welcome back</h1><p class="sub" id="sub">Log in to your command center.</p>
+<div class="social"><button type="button" data-social="Google"><svg viewBox="0 0 24 24"><path d="M21.35 11.1H12v2.9h5.35c-.5 2.5-2.6 3.9-5.35 3.9a6 6 0 1 1 0-12c1.5 0 2.8.55 3.85 1.45l2.1-2.1A9 9 0 1 0 12 21c5.2 0 8.6-3.65 8.6-8.8 0-.4-.05-.8-.15-1.1Z"/></svg>Google</button><button type="button" data-social="GitHub"><svg viewBox="0 0 24 24"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.62 1.59.23 2.76.11 3.05.74.81 1.18 1.83 1.18 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>GitHub</button></div>
+<p class="note" id="note" hidden></p>
+<div class="or">or continue with email</div>
+<form id="acctForm" novalidate>
+<div class="field only-signup"><input id="name" placeholder=" " autocomplete="name"><label for="name">Full name</label><p class="err"></p></div>
+<div class="field"><input id="email" type="email" placeholder=" " autocomplete="email"><label for="email">Work email</label><p class="err"></p></div>
+<div class="field"><input id="pw" type="password" placeholder=" "><label for="pw">Password</label><button class="eye" type="button" aria-label="Show password"><svg viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg></button><p class="err"></p></div>
+<div class="meter only-signup" id="meter"><i></i><i></i><i></i><i></i></div><p class="hint only-signup" id="hint"></p>
+<div class="row only-login"><label><input type="checkbox"> Remember me</label><a href="contact.html">Forgot password?</a></div>
+<button class="btn btn-primary full" id="submit" type="submit"><span id="submitLabel">Log in</span></button>
+<button class="btn btn-outline full only-login" type="button" id="magic">Email me a magic link</button>
+<p class="fine only-signup">By creating an account you agree to our <a href="terms.html">Terms</a> and <a href="privacy.html">Privacy Policy</a>.</p>
+</form></div>
+<div class="okbox" id="acctOk" hidden><div class="tick"><svg viewBox="0 0 24 24"><path d="m5 12 5 5 9-10"/></svg></div><h2 id="okTitle"></h2><p id="okMsg"></p><a class="btn btn-primary" href="dashboard.html">Go to dashboard</a></div>
+</div></div>
+<aside class="acct-art"><div class="orb"></div>
+<blockquote>“Ascend cut our lead response time from hours to seconds.”<cite>Maya Torres · RevOps Lead, Nimbus</cite></blockquote>
+<div class="mini"><div><b>3.4×</b><span>Faster pipeline</span></div><div><b>92%</b><span>Capture accuracy</span></div></div></aside>
+</section>
+</main>
+<div id="site-footer" class="section tight"></div>
+</div>
+<script type="module" src="js/account.js"></script>
+</body>
+</html>
