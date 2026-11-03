@@ -5,18 +5,25 @@
   <img src="https://img.shields.io/badge/Stack-HTML%20%7C%20CSS%20%7C%20JS-3a6cff?style=for-the-badge" alt="Stack">
   <img src="https://img.shields.io/badge/Auth-Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black" alt="Firebase Auth">
   <img src="https://img.shields.io/badge/3D-Three.js-black?style=for-the-badge&logo=threedotjs" alt="Three.js">
-  <img src="https://img.shields.io/badge/Hosting-GitHub%20Pages-222?style=for-the-badge&logo=github" alt="GitHub Pages">
+  <img src="https://img.shields.io/badge/Hosting-Vercel-000?style=for-the-badge&logo=vercel" alt="Vercel">
+  <img src="https://img.shields.io/github/stars/MohdRashid1607/Ascend?style=for-the-badge&color=5df0a8" alt="Stars">
 </p>
 
 <p align="center">
-  A fully handcrafted, <strong>zero-dependency SaaS landing page</strong> with a live 3D planet, Firebase authentication, and a real user dashboard — built to showcase modern front-end engineering and UX/UI skills.
+  A fully handcrafted, <strong>zero-dependency SaaS landing page</strong> with a live 3D planet, real Firebase authentication (Google & GitHub OAuth), and a protected user dashboard — built to showcase modern front-end engineering and UX/UI skills.
+</p>
+
+<p align="center">
+  <a href="https://github.com/MohdRashid1607/Ascend"><strong>View Repo</strong></a> ·
+  <a href="https://github.com/MohdRashid1607/Ascend/issues">Report Bug</a> ·
+  <a href="https://github.com/MohdRashid1607/Ascend/issues">Request Feature</a>
 </p>
 
 ---
 
 ## ✨ Live Demo
 
-> 🔗 **[ascend-demo.github.io](https://your-username.github.io/Ascend)** ← replace with your GitHub Pages URL
+> 🔗 **[Live on Vercel →](https://ascend-mohdrashid.vercel.app)** *(update this link after deploying to Vercel)*
 
 ---
 
@@ -55,7 +62,7 @@ Three.js (3D planet & GLSL shaders)
 Firebase Auth (Google OAuth, GitHub OAuth, Email/Password)
 Lenis (smooth scroll)
 Google Fonts — Inter
-GitHub Pages (hosting)
+Vercel (hosting)
 ```
 
 No React. No Tailwind. No build step. Just clean, modern web fundamentals.
@@ -117,54 +124,43 @@ Ascend/
 ### 2. Enable Authentication
 
 1. In the Firebase console: **Authentication → Get started**
-2. Click **Sign-in method** → enable **Google** (easy, just toggle on)
+2. Click **Sign-in method** → enable **Google** (just toggle on + pick a support email)
 3. Enable **GitHub**:
    - Go to [github.com/settings/developers](https://github.com/settings/developers) → **New OAuth App**
-   - **Homepage URL**: your GitHub Pages URL (e.g. `https://yourusername.github.io/Ascend`)
-   - **Callback URL**: copy the callback URL shown in the Firebase GitHub setup panel
-   - Click **Register** → copy the **Client ID** and **Client Secret**
-   - Paste them into the Firebase GitHub sign-in settings → **Save**
+   - **Homepage URL**: your Vercel URL
+   - **Callback URL**: copy from the Firebase GitHub sign-in settings panel
+   - Click **Register** → **Generate a new client secret**
+   - Copy the **Client ID** and **Client Secret** → paste into Firebase → **Save**
 
 ### 3. Paste your config
 
-Open `js/firebase.js` and replace the placeholder values:
+Open `js/firebase.js` and fill in the `firebaseConfig` object with your project's values from Firebase console → Project settings.
 
-```js
-const firebaseConfig = {
-  apiKey:            "YOUR_KEY",
-  authDomain:        "YOUR_DOMAIN.firebaseapp.com",
-  projectId:         "YOUR_PROJECT_ID",
-  storageBucket:     "YOUR_BUCKET.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId:             "YOUR_APP_ID"
-};
-```
+### 4. Add your domains to Firebase
 
-### 4. Add your domain to Firebase
-
-1. In Firebase console: **Authentication → Settings → Authorized domains**
-2. Add your GitHub Pages domain: `yourusername.github.io`
-
-That's it — Google and GitHub sign-in will work.
+Firebase console → **Authentication → Settings → Authorized domains** → Add:
+- `localhost` (for local development)
+- Your Vercel domain e.g. `ascend-yourname.vercel.app`
 
 ---
 
-## 🌐 Deploy to GitHub Pages
+## 🌐 Deploy to Vercel
 
 ```bash
-# 1. Create a new repo on GitHub (e.g. "Ascend")
-# 2. Push the project
+# 1. Push to GitHub
 git init
 git add .
-git commit -m "Initial commit — Ascend landing page"
+git commit -m "feat: Ascend SaaS landing page with Firebase auth"
 git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/Ascend.git
+git remote add origin https://github.com/MohdRashid1607/Ascend.git
 git push -u origin main
-
-# 3. Enable GitHub Pages
-# → Repo Settings → Pages → Source: Deploy from branch → main / (root) → Save
-# → Site will be live at: https://YOUR_USERNAME.github.io/Ascend/
 ```
+
+Then:
+1. Go to [vercel.com](https://vercel.com) → **Sign up with GitHub**
+2. Click **"Add New Project"** → import the `Ascend` repo
+3. Leave all settings as default (no build command needed)
+4. Click **"Deploy"** — done in ~20 seconds ✅
 
 ---
 
@@ -173,13 +169,13 @@ git push -u origin main
 No build step required. Just serve the files with any static server:
 
 ```bash
-# Option A — Python (built into macOS/Linux)
+# Option A — Python
 python3 -m http.server 8000
 
-# Option B — Node.js (if installed)
+# Option B — Node.js
 npx serve .
 
-# Option C — VS Code Live Server extension
+# Option C — VS Code
 # Right-click index.html → Open with Live Server
 ```
 
@@ -216,6 +212,14 @@ npx serve .
 | `--glass` | `rgba(12,18,38,.55)` | Card backgrounds |
 | `--radius-lg` | `26px` | Card border radius |
 | `--font` | `'Inter'` | Body & headings |
+
+---
+
+## 👤 Author
+
+**Mohd Rashid**
+- GitHub: [@MohdRashid1607](https://github.com/MohdRashid1607)
+- Repo: [github.com/MohdRashid1607/Ascend](https://github.com/MohdRashid1607/Ascend)
 
 ---
 
