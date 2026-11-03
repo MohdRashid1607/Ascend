@@ -1,11 +1,7 @@
-import { auth } from './firebase.js';
-import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
-
 // ── Path helpers ──────────────────────────────────────────────
-// Detect whether we are inside the /pages/ subfolder
-const inPages  = location.pathname.includes('/pages/');
-const toRoot   = inPages ? '../' : '';        // prefix to reach root
-const toPages  = inPages ? ''   : 'pages/';  // prefix to reach pages/
+const inPages = location.pathname.includes('/pages/');
+const toRoot  = inPages ? '../' : '';
+const toPages = inPages ? ''   : 'pages/';
 
 // ── Nav links ─────────────────────────────────────────────────
 const links = [
@@ -14,56 +10,58 @@ const links = [
   ['Plans',     `${toPages}plans.html`],
   ['Learning',  `${toPages}learning.html`],
 ];
-
 const here = location.pathname.split('/').pop() || 'index.html';
 const cur  = h => h.split('#')[0].split('/').pop() === here ? ' aria-current="page"' : '';
 
-// ── Inject nav ────────────────────────────────────────────────
-const nav = document.getElementById('site-nav');
-if (nav) nav.outerHTML = `<nav class="nav">
+// ── Inject nav immediately (synchronous, no CDN needed) ───────
+const navEl = document.getElementById('site-nav');
+if (navEl) navEl.outerHTML = `<nav class="nav">
 <a class="brand" href="${toRoot}index.html"><span class="brand-mark">▲</span>Ascend</a>
 <div class="nav-links">${links.map(([t,h]) => `<a href="${h}"${cur(h)}>${t}</a>`).join('')}</div>
 <div class="nav-actions"><a class="btn btn-ghost nav-signup" id="navSignUp" href="${toPages}account.html#signup">Sign Up</a><button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></div></nav>`;
 
-// ── Auth-aware nav button ─────────────────────────────────────
-onAuthStateChanged(auth, user => {
-  const signUpBtn = document.getElementById('navSignUp');
-  if (!signUpBtn) return;
+// ── Auth-aware nav (dynamic Firebase import — won't crash nav if CDN fails) ──
+import('./firebase.js').then(({ auth }) =>
+  import('https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js').then(({ onAuthStateChanged }) => {
+    onAuthStateChanged(auth, user => {
+      const signUpBtn = document.getElementById('navSignUp');
+      if (!signUpBtn) return;
 
-  if (user) {
-    const a = document.createElement('a');
-    a.href      = `${toPages}dashboard.html`;
-    a.className = 'nav-avatar-btn';
-    a.title     = user.displayName || user.email;
+      if (user) {
+        const a = document.createElement('a');
+        a.href      = `${toPages}dashboard.html`;
+        a.className = 'nav-avatar-btn';
+        a.title     = user.displayName || user.email;
 
-    if (user.photoURL) {
-      const img = document.createElement('img');
-      img.src = user.photoURL;
-      img.alt = user.displayName || 'Profile';
-      img.referrerPolicy = 'no-referrer';
-      a.appendChild(img);
-    } else {
-      a.textContent = (user.displayName || user.email)[0].toUpperCase();
-    }
+        if (user.photoURL) {
+          const img = document.createElement('img');
+          img.src = user.photoURL;
+          img.alt = user.displayName || 'Profile';
+          img.referrerPolicy = 'no-referrer';
+          a.appendChild(img);
+        } else {
+          a.textContent = (user.displayName || user.email)[0].toUpperCase();
+        }
+        const span = document.createElement('span');
+        span.className   = 'nav-avatar-name';
+        span.textContent = (user.displayName || user.email).split(' ')[0];
+        a.appendChild(span);
+        signUpBtn.replaceWith(a);
 
-    const span = document.createElement('span');
-    span.className   = 'nav-avatar-name';
-    span.textContent = (user.displayName || user.email).split(' ')[0];
-    a.appendChild(span);
-
-    signUpBtn.replaceWith(a);
-  } else {
-    const existing = document.querySelector('.nav-avatar-btn');
-    if (existing) {
-      const a = document.createElement('a');
-      a.className = 'btn btn-ghost nav-signup';
-      a.id        = 'navSignUp';
-      a.href      = `${toPages}account.html#signup`;
-      a.textContent = 'Sign Up';
-      existing.replaceWith(a);
-    }
-  }
-});
+      } else {
+        const existing = document.querySelector('.nav-avatar-btn');
+        if (existing) {
+          const a = document.createElement('a');
+          a.className   = 'btn btn-ghost nav-signup';
+          a.id          = 'navSignUp';
+          a.href        = `${toPages}account.html#signup`;
+          a.textContent = 'Sign Up';
+          existing.replaceWith(a);
+        }
+      }
+    });
+  })
+).catch(() => { /* Firebase unavailable — nav still shows with Sign Up button */ });
 
 // ── Inject footer ─────────────────────────────────────────────
 const ft = document.getElementById('site-footer');
