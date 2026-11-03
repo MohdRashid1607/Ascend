@@ -91,7 +91,7 @@ document.getElementById('dbNav').addEventListener('click', e => {
 // ── Sign out (sidebar + settings) ────────────────────────────
 async function doSignOut() {
   await signOutUser();
-  location.href = 'index.html';
+  location.href = '../index.html';
 }
 document.getElementById('signOutBtn').addEventListener('click', doSignOut);
 const settingsSignOut = document.getElementById('settingsSignOut');
@@ -110,6 +110,6 @@ if (saveBtn) {
 // ── Delete account (danger zone — just shows confirmation) ────
 document.querySelector('.db-btn-danger')?.addEventListener('click', () => {
   if (confirm('Are you sure you want to delete your account? This cannot be undone.')) {
-    signOutUser().then(() => { location.href = 'index.html'; });
+    signOutUser().then(() => { location.href = '../index.html'; });
   }
 });
