@@ -20,76 +20,330 @@
 <header><div id="site-nav"></div></header>
 <main>
   <div class="db-shell">
+
     <!-- Sidebar -->
-    <nav class="db-sidebar" id="dbSidebar">
+    <nav class="db-sidebar">
       <div class="db-avatar-wrap">
         <div class="db-avatar" id="dbAvatar"></div>
         <div>
-          <div class="db-name" id="dbName">Loading…</div>
+          <div class="db-name" id="dbName">Loading</div>
           <div class="db-email" id="dbEmail"></div>
         </div>
       </div>
-      <ul class="db-nav">
-        <li class="active"><span>⌂</span> Overview</li>
-        <li><span>⚡</span> Workflows</li>
-        <li><span>📊</span> Analytics</li>
-        <li><span>👥</span> Leads</li>
-        <li><span>⚙</span> Settings</li>
+
+      <ul class="db-nav" id="dbNav">
+        <li class="active" data-panel="overview">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+          Overview
+        </li>
+        <li data-panel="workflows">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="6" height="6" rx="1.5"/><rect x="15" y="15" width="6" height="6" rx="1.5"/><path d="M6 9v3a3 3 0 0 0 3 3h3"/></svg>
+          Workflows
+        </li>
+        <li data-panel="analytics">
+          <svg viewBox="0 0 24 24"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16v-4"/><path d="M13 16V8"/><path d="M18 16v-7"/></svg>
+          Analytics
+        </li>
+        <li data-panel="leads">
+          <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Leads
+        </li>
+        <li data-panel="settings">
+          <svg viewBox="0 0 24 24"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+          Settings
+        </li>
       </ul>
+
       <button class="btn btn-outline db-signout" id="signOutBtn" type="button">Sign out</button>
     </nav>
 
     <!-- Main content -->
     <div class="db-main">
       <div class="db-topbar">
-        <h1 class="db-greeting" id="dbGreeting">Good evening 👋</h1>
-        <span class="db-plan-badge">Launch Plan <a href="plans.html">↑ Upgrade</a></span>
+        <div>
+          <div class="db-eyebrow" id="dbPanelLabel">Overview</div>
+          <h1 class="db-greeting" id="dbGreeting">Good afternoon</h1>
+        </div>
+        <span class="db-plan-badge">Launch Plan <a href="plans.html">Upgrade</a></span>
       </div>
 
-      <!-- KPI cards -->
-      <div class="db-kpis">
-        <div class="db-kpi glass">
-          <div class="db-kpi-label">Leads this month</div>
-          <div class="db-kpi-value">—</div>
-          <div class="db-kpi-sub">of 500 included</div>
-        </div>
-        <div class="db-kpi glass">
-          <div class="db-kpi-label">Active workflows</div>
-          <div class="db-kpi-value">—</div>
-          <div class="db-kpi-sub">of 1 included</div>
-        </div>
-        <div class="db-kpi glass">
-          <div class="db-kpi-label">Pipeline velocity</div>
-          <div class="db-kpi-value">—</div>
-          <div class="db-kpi-sub">vs. last month</div>
-        </div>
-        <div class="db-kpi glass">
-          <div class="db-kpi-label">Capture accuracy</div>
-          <div class="db-kpi-value">—</div>
-          <div class="db-kpi-sub">rolling 30 days</div>
-        </div>
-      </div>
-
-      <!-- Welcome card -->
-      <div class="db-welcome glass" data-reveal>
-        <div class="db-welcome-text">
-          <h2>You're in orbit. 🚀</h2>
-          <p>Your Ascend workspace is ready. Connect your first data source or explore the learning center to hit the ground running.</p>
-          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:20px">
-            <a class="btn btn-primary" href="learning.html">Explore guides</a>
-            <a class="btn btn-outline" href="plans.html">View plans</a>
+      <!-- PANEL: Overview -->
+      <div class="db-panel" id="panel-overview">
+        <div class="db-kpis">
+          <div class="db-kpi">
+            <div class="db-kpi-label">Leads this month</div>
+            <div class="db-kpi-value">47</div>
+            <div class="db-kpi-sub">of 500 included</div>
+          </div>
+          <div class="db-kpi">
+            <div class="db-kpi-label">Active workflows</div>
+            <div class="db-kpi-value">1</div>
+            <div class="db-kpi-sub">of 1 included</div>
+          </div>
+          <div class="db-kpi">
+            <div class="db-kpi-label">Pipeline velocity</div>
+            <div class="db-kpi-value db-kpi-up">+12%</div>
+            <div class="db-kpi-sub">vs. last month</div>
+          </div>
+          <div class="db-kpi">
+            <div class="db-kpi-label">Capture accuracy</div>
+            <div class="db-kpi-value">94%</div>
+            <div class="db-kpi-sub">rolling 30 days</div>
           </div>
         </div>
-        <div class="db-orb-mini"></div>
+
+        <div class="db-welcome glass">
+          <div class="db-welcome-text">
+            <h2>Your workspace is ready</h2>
+            <p>Connect your first data source or explore the learning center to get up to speed. Everything you need to run your pipeline is right here.</p>
+            <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:20px">
+              <a class="btn btn-primary" href="learning.html">Explore guides</a>
+              <a class="btn btn-outline" href="plans.html">View plans</a>
+            </div>
+          </div>
+          <img class="db-planet-mini" src="img/planet.png" alt="Earth">
+        </div>
+
+        <div class="db-section">
+          <div class="db-section-title">Recent activity</div>
+          <div class="db-activity glass">
+            <div class="db-activity-row">
+              <div class="db-activity-dot dot-green"></div>
+              <div class="db-activity-text">
+                <span>Lead captured — <strong>sarah.chen@nimbus.io</strong></span>
+                <small>2 minutes ago</small>
+              </div>
+            </div>
+            <div class="db-activity-row">
+              <div class="db-activity-dot dot-blue"></div>
+              <div class="db-activity-text">
+                <span>Workflow triggered — <strong>CRM sync</strong></span>
+                <small>14 minutes ago</small>
+              </div>
+            </div>
+            <div class="db-activity-row">
+              <div class="db-activity-dot dot-green"></div>
+              <div class="db-activity-text">
+                <span>Lead captured — <strong>james.park@vertx.com</strong></span>
+                <small>1 hour ago</small>
+              </div>
+            </div>
+            <div class="db-activity-row">
+              <div class="db-activity-dot dot-muted"></div>
+              <div class="db-activity-text">
+                <span>Report generated — <strong>October pipeline summary</strong></span>
+                <small>Yesterday at 09:00</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="db-section">
+          <div class="db-section-title">Recommended reading</div>
+          <div class="db-guide-grid" id="dbGuides"></div>
+        </div>
       </div>
 
-      <!-- Recent guides -->
-      <section class="db-section">
-        <h3 class="db-section-title">Quick reads</h3>
-        <div class="db-guide-grid" id="dbGuides"></div>
-      </section>
-    </div>
-  </div>
+      <!-- PANEL: Workflows -->
+      <div class="db-panel" id="panel-workflows" hidden>
+        <div class="db-panel-header">
+          <p class="db-panel-desc">Automate hand-offs between your tools. Each workflow runs automatically when its trigger fires.</p>
+          <button class="btn btn-primary" type="button">New workflow</button>
+        </div>
+        <div class="db-workflow-list glass">
+          <div class="db-workflow-row">
+            <div class="db-wf-status status-active"></div>
+            <div class="db-wf-info">
+              <div class="db-wf-name">Lead capture → CRM sync</div>
+              <div class="db-wf-meta">Trigger: form submit · Last run: 14 min ago</div>
+            </div>
+            <span class="db-badge badge-active">Active</span>
+            <button class="btn btn-outline db-wf-btn" type="button">Edit</button>
+          </div>
+          <div class="db-workflow-row">
+            <div class="db-wf-status status-paused"></div>
+            <div class="db-wf-info">
+              <div class="db-wf-name">New signup welcome sequence</div>
+              <div class="db-wf-meta">Trigger: account created · Last run: 3 days ago</div>
+            </div>
+            <span class="db-badge badge-paused">Paused</span>
+            <button class="btn btn-outline db-wf-btn" type="button">Edit</button>
+          </div>
+          <div class="db-workflow-row db-workflow-locked">
+            <div class="db-wf-status status-locked"></div>
+            <div class="db-wf-info">
+              <div class="db-wf-name">Monthly revenue digest</div>
+              <div class="db-wf-meta">Trigger: scheduled · Requires Orbit plan</div>
+            </div>
+            <span class="db-badge badge-locked">Locked</span>
+            <a class="btn btn-outline db-wf-btn" href="plans.html">Upgrade</a>
+          </div>
+        </div>
+        <p class="db-limit-note">You are using 1 of 1 workflow slots on your current plan. <a href="plans.html">Upgrade to Orbit</a> for unlimited workflows.</p>
+      </div>
+
+      <!-- PANEL: Analytics -->
+      <div class="db-panel" id="panel-analytics" hidden>
+        <div class="db-panel-header">
+          <p class="db-panel-desc">Pipeline performance over the last 7 days. Upgrade for live streaming data.</p>
+        </div>
+        <div class="glass db-chart-wrap">
+          <div class="db-chart-title">Pipeline · Last 7 days</div>
+          <div class="db-bars-wrap">
+            <div class="db-bars" id="dbAnalyticsBars"></div>
+            <div class="db-bar-labels">
+              <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+            </div>
+          </div>
+        </div>
+        <div class="db-kpis">
+          <div class="db-kpi">
+            <div class="db-kpi-label">Total leads</div>
+            <div class="db-kpi-value">47</div>
+            <div class="db-kpi-sub">this month</div>
+          </div>
+          <div class="db-kpi">
+            <div class="db-kpi-label">Qualified</div>
+            <div class="db-kpi-value">28</div>
+            <div class="db-kpi-sub">59% rate</div>
+          </div>
+          <div class="db-kpi">
+            <div class="db-kpi-label">In negotiation</div>
+            <div class="db-kpi-value">11</div>
+            <div class="db-kpi-sub">23% rate</div>
+          </div>
+          <div class="db-kpi">
+            <div class="db-kpi-label">Closed won</div>
+            <div class="db-kpi-value">6</div>
+            <div class="db-kpi-sub">12.7% rate</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANEL: Leads -->
+      <div class="db-panel" id="panel-leads" hidden>
+        <div class="db-panel-header">
+          <p class="db-panel-desc">All contacts captured this month. Click a row to view the full lead profile.</p>
+          <button class="btn btn-primary" type="button">Import leads</button>
+        </div>
+        <div class="db-table-wrap glass">
+          <table class="db-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Company</th>
+                <th>Status</th>
+                <th>Score</th>
+                <th>Captured</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><div class="db-lead-name">Sarah Chen</div><div class="db-lead-email">sarah.chen@nimbus.io</div></td>
+                <td>Nimbus</td>
+                <td><span class="db-badge badge-active">Qualified</span></td>
+                <td><div class="db-score"><div class="db-score-bar" style="--w:87%"></div><span>87</span></div></td>
+                <td class="db-date">2 min ago</td>
+              </tr>
+              <tr>
+                <td><div class="db-lead-name">James Park</div><div class="db-lead-email">james.park@vertx.com</div></td>
+                <td>Vertx</td>
+                <td><span class="db-badge badge-new">New</span></td>
+                <td><div class="db-score"><div class="db-score-bar" style="--w:62%"></div><span>62</span></div></td>
+                <td class="db-date">1 hr ago</td>
+              </tr>
+              <tr>
+                <td><div class="db-lead-name">Aisha Okonkwo</div><div class="db-lead-email">aisha@pluma.co</div></td>
+                <td>Pluma</td>
+                <td><span class="db-badge badge-active">Qualified</span></td>
+                <td><div class="db-score"><div class="db-score-bar" style="--w:91%"></div><span>91</span></div></td>
+                <td class="db-date">3 hr ago</td>
+              </tr>
+              <tr>
+                <td><div class="db-lead-name">Tom Reeves</div><div class="db-lead-email">t.reeves@helod.io</div></td>
+                <td>Helod</td>
+                <td><span class="db-badge badge-negotiation">Negotiation</span></td>
+                <td><div class="db-score"><div class="db-score-bar" style="--w:75%"></div><span>75</span></div></td>
+                <td class="db-date">Yesterday</td>
+              </tr>
+              <tr>
+                <td><div class="db-lead-name">Priya Menon</div><div class="db-lead-email">priya@citrus.app</div></td>
+                <td>Citrus</td>
+                <td><span class="db-badge badge-new">New</span></td>
+                <td><div class="db-score"><div class="db-score-bar" style="--w:44%"></div><span>44</span></div></td>
+                <td class="db-date">Yesterday</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="db-limit-note">Showing 5 of 47 leads this month. <a href="plans.html">Upgrade to Orbit</a> to export and filter all leads.</p>
+      </div>
+
+      <!-- PANEL: Settings -->
+      <div class="db-panel" id="panel-settings" hidden>
+        <div class="db-settings-grid">
+          <div class="db-settings-section glass">
+            <h3 class="db-settings-title">Profile</h3>
+            <p class="db-settings-desc">Your display name and email address tied to this account.</p>
+            <div class="db-settings-fields">
+              <label class="db-field-label">Display name
+                <input class="db-field-input" id="settingsName" type="text" placeholder="Your name">
+              </label>
+              <label class="db-field-label">Email address
+                <input class="db-field-input" id="settingsEmail" type="email" disabled>
+              </label>
+            </div>
+            <button class="btn btn-primary" id="saveProfileBtn" type="button">Save changes</button>
+            <p class="db-save-msg" id="saveMsg" hidden>Saved.</p>
+          </div>
+
+          <div class="db-settings-section glass">
+            <h3 class="db-settings-title">Current plan</h3>
+            <p class="db-settings-desc">You are on the <strong>Launch</strong> plan — free forever with core features included.</p>
+            <div class="db-plan-detail">
+              <div class="db-plan-row"><span>Workflow pipelines</span><span>1 of 1</span></div>
+              <div class="db-plan-row"><span>Leads per month</span><span>47 of 500</span></div>
+              <div class="db-plan-row"><span>Live dashboards</span><span>Not included</span></div>
+              <div class="db-plan-row"><span>Support</span><span>Community</span></div>
+            </div>
+            <a class="btn btn-primary" href="plans.html" style="margin-top:20px;display:inline-flex">Upgrade to Orbit</a>
+          </div>
+
+          <div class="db-settings-section glass">
+            <h3 class="db-settings-title">Notifications</h3>
+            <p class="db-settings-desc">Choose what activity sends you an alert.</p>
+            <div class="db-toggles">
+              <label class="db-toggle-row">
+                <div><div class="db-toggle-label">New lead captured</div><div class="db-toggle-sub">Notify when a new lead enters your pipeline</div></div>
+                <input type="checkbox" class="db-toggle-input" checked>
+                <span class="db-toggle-pill"></span>
+              </label>
+              <label class="db-toggle-row">
+                <div><div class="db-toggle-label">Workflow completed</div><div class="db-toggle-sub">Notify when an automation finishes running</div></div>
+                <input type="checkbox" class="db-toggle-input">
+                <span class="db-toggle-pill"></span>
+              </label>
+              <label class="db-toggle-row">
+                <div><div class="db-toggle-label">Monthly report ready</div><div class="db-toggle-sub">Get a summary of pipeline performance each month</div></div>
+                <input type="checkbox" class="db-toggle-input" checked>
+                <span class="db-toggle-pill"></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="db-settings-section glass db-danger-zone">
+            <h3 class="db-settings-title">Account</h3>
+            <p class="db-settings-desc">Sign out from this device or permanently delete your workspace.</p>
+            <div style="display:flex;gap:12px;flex-wrap:wrap">
+              <button class="btn btn-outline" id="settingsSignOut" type="button">Sign out</button>
+              <button class="btn db-btn-danger" type="button">Delete account</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /db-main -->
+  </div><!-- /db-shell -->
 </main>
 </div>
 <script type="module" src="js/dashboard.js"></script>

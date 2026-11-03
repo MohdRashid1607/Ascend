@@ -34,4 +34,10 @@ html.lenis,html.lenis body{height:auto}
 .btn-outline:hover{background:rgba(255,255,255,.09);transform:translateY(-2px)}
 .btn-ghost{color:var(--ink);background:rgba(255,255,255,.05);border-color:var(--line-strong);padding:9px 18px}
 .btn-ghost:hover{background:rgba(255,255,255,.1)}
+/* Nav avatar (shown when signed in) */
+.nav-avatar-btn{display:flex;align-items:center;gap:9px;padding:4px 14px 4px 4px;border-radius:999px;border:1px solid var(--line-strong);background:rgba(255,255,255,.05);color:var(--ink);font-size:14px;font-weight:600;cursor:pointer;transition:background .18s,border-color .2s;text-decoration:none}
+.nav-avatar-btn:hover{background:rgba(255,255,255,.1);border-color:var(--line-strong)}
+.nav-avatar-btn img{width:28px;height:28px;border-radius:50%;object-fit:cover;display:block}
+.nav-avatar-btn .nav-avatar-name{color:var(--ink)}
+@media (max-width:560px){.nav-avatar-name{display:none}.nav-avatar-btn{padding:3px}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}[data-reveal]{opacity:1;transform:none;transition:none}}
