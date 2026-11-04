@@ -23,7 +23,7 @@
 
 ## Live Demo
 
-> **[Live on Vercel →](https://ascend-mohdrashid.vercel.app)** *(update this link after deploying)*
+> **[Live on Vercel →](https://ascend-mohd.vercel.app)** 
 
 ---
 
