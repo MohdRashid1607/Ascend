@@ -1,4 +1,4 @@
-import './pages.js';
+import './page.js';
 import {cats,guides} from './guides.js';
 const grid=document.getElementById('grid'),chips=document.getElementById('chips'),q=document.getElementById('q'),none=document.getElementById('none');
 let cat='All';

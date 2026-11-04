@@ -33,7 +33,7 @@
 ![Home page with 3D Earth globe, dark space background and hero CTA](img/screenshot_home.png)
 
 ### Pricing
-![Pricing page with three tier cards and monthly/yearly toggle](img/screenshot_plans.png)
+![Pricing page with three tier cards and monthly/yearly toggle](img/screenshot_plans.jpg)
 
 ### User Dashboard
 ![Protected user dashboard with sidebar navigation, KPI cards and activity feed](img/screenshot_dashboard.png)
@@ -77,48 +77,31 @@ No React. No Tailwind. No build step. Just clean, modern web fundamentals.
 ## Project Structure
 
 ```
-Ascend/
-├── index.html          — Landing page (3D globe, hero, features, plans)
-├── account.html        — Login / Sign up
-├── dashboard.html      — Protected user dashboard
-├── plans.html          — Pricing page
-├── learning.html       — Filterable guide library
-├── guide.html          — Individual guide reader
-├── contact.html        — Contact / sales form
-├── privacy.html        — Privacy policy
-├── terms.html          — Terms of service
-├── 404.html            — Custom 404 page
-│
+ascend-final/
+├── index.html            home (3D planet)
+├── 404.html              not-found page (must stay in the root for hosting)
 ├── img/
-│   ├── planet.png              — Photorealistic Earth used on auth & dashboard pages
-│   ├── screenshot_home.png     — Home page preview
-│   ├── screenshot_plans.png    — Pricing page preview
-│   └── screenshot_dashboard.png — Dashboard preview
-│
+│   └── planet.png        Earth image used on the account + dashboard pages
 ├── css/
-│   ├── base.css        — Design tokens, buttons, nav avatar styles
-│   ├── sections.css    — Page sections (hero, features, showcase, CTA)
-│   ├── Components.css  — Shared UI (dialog, marquee, nav)
-│   ├── Pages.css       — Inner page styles (plans, learning, contact, auth)
-│   └── dashboard.css   — Dashboard layout, panels, table, toggles
-│
-└── js/
-    ├── firebase.js     — Firebase App + Auth helpers (Google, GitHub, email)
-    ├── layout.js       — Shared nav injection + auth-aware avatar swap
-    ├── main.js         — Homepage orchestration (3D scene, features, plans)
-    ├── scene.js        — Three.js planet renderer
-    ├── Shaders.js      — Custom GLSL vertex + fragment shaders
-    ├── account.js      — Auth logic (sign in, sign up, OAuth)
-    ├── dashboard.js    — Dashboard hydration, auth guard, panel switching
-    ├── ui.js           — Mobile nav toggle, smooth anchor links
-    ├── pages.js        — Scroll-reveal IntersectionObserver for inner pages
-    ├── plans.js        — Billing toggle (monthly / yearly)
-    ├── learning.js     — Guide grid, category filter, search
-    ├── guides.js       — Guide data
-    ├── guide.js        — Individual guide renderer
-    ├── contact.js      — Contact form validation + submission
-    └── data.js         — Feature icons, stats, plan data
-```
+│   ├── base.css          tokens, resets, buttons
+│   ├── sections.css      nav, hero, features, showcase, plans, CTA, footer
+│   ├── components.css    logo marquee, text scrims, mobile menu
+│   ├── pages.css         inner pages (account, plans, learning, contact, legal)
+│   └── dashboard.css
+├── js/
+│   ├── main.js  scene.js  shaders.js  data.js      home + 3D planet
+│   ├── firebase.js  dashboard.js                   login + dashboard
+│   ├── layout.js  ui.js  page.js                   shared nav/footer, menu, reveal
+│   └── account.js  plans.js  learning.js  guide.js  guides.js  contact.js
+└── pages/
+    ├── account.html      log in / sign up  (#login, #signup)
+    ├── plans.html
+    ├── learning.html
+    ├── guide.html        guide template (?id=…)
+    ├── dashboard.html    protected dashboard (needs sign-in)
+    ├── contact.html
+    ├── privacy.html
+    └── terms.html
 
 ---
 

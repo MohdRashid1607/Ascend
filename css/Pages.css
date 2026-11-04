@@ -94,13 +94,13 @@
 .btn.loading::after{content:"";width:16px;height:16px;border-radius:50%;border:2px solid rgba(3,32,24,.3);border-top-color:var(--accent-ink);animation:spin .7s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 body[data-mode=login] .only-signup,body[data-mode=signup] .only-login{display:none!important}
-.acct-art{position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;align-items:center;padding:40px;min-height:600px;border-radius:var(--radius-lg);border:1px solid var(--line-strong);background:radial-gradient(80% 60% at 50% 30%,rgba(58,108,255,.35),transparent 70%),linear-gradient(180deg,rgba(10,16,38,.85),rgba(4,8,22,.95))}
-.acct-planet{width:min(280px,64%);aspect-ratio:1;border-radius:50%;object-fit:cover;object-position:center;display:block;margin:0 auto 32px;filter:drop-shadow(0 0 60px rgba(58,108,255,.5));animation:acct-float 7s ease-in-out infinite}
-@keyframes acct-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
-.acct-art blockquote{font-size:21px;font-weight:600;line-height:1.4;letter-spacing:-.01em}
+.acct-art{position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:40px;min-height:600px;border-radius:var(--radius-lg);border:1px solid var(--line-strong);background:radial-gradient(80% 60% at 50% 110%,rgba(58,108,255,.5),transparent 70%),linear-gradient(180deg,rgba(10,16,38,.8),rgba(4,8,22,.92))}
+.acct-art::before{content:"";position:absolute;left:50%;top:6%;width:min(460px,92%);aspect-ratio:1;transform:translateX(-50%);background:radial-gradient(circle,rgba(58,140,255,.32),transparent 66%);pointer-events:none}
+.orb{position:absolute;left:50%;top:5%;width:min(430px,90%);height:auto;aspect-ratio:1;object-fit:contain;transform:translateX(-50%);mix-blend-mode:screen;-webkit-mask-image:radial-gradient(circle closest-side,#000 80%,transparent 100%);mask-image:radial-gradient(circle closest-side,#000 80%,transparent 100%);animation:float 8s ease-in-out infinite}
+@keyframes float{50%{transform:translate(-50%,-10px)}}
+.acct-art blockquote{position:relative;font-size:21px;font-weight:600;line-height:1.4;letter-spacing:-.01em}
 .acct-art cite{display:block;margin-top:14px;font-style:normal;font-size:14px;color:var(--muted)}
-.acct-art-bottom{width:100%;border-top:1px solid var(--line);padding-top:22px;margin-top:8px}
-.acct-art .mini{display:flex;gap:28px;margin-top:22px}
+.acct-art .mini{position:relative;display:flex;gap:28px;margin-top:26px;padding-top:22px;border-top:1px solid var(--line)}
 .acct-art .mini b{display:block;font-size:26px;font-weight:800;color:var(--accent)}.acct-art .mini span{font-size:13px;color:var(--muted)}
 /* 404 */
 .nf{text-align:center;padding:12vh 24px 8vh}
